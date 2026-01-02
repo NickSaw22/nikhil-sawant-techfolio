@@ -1,8 +1,9 @@
 import { Hero } from "../components/main/hero";
 import { Skills } from "../components/main/skills";
 import { About } from "../components/main/about";
-import { Projects } from "../components/main/projects";
 import { Products } from "../components/main/Products";
+import { Projects } from "../components/main/projects";
+import { PROJECTS } from "../constants";
 import { SourceCode } from "../components/main/source-code";
 import { Experience } from "../components/main/experience";
 import { Certifications } from "../components/main/certifications";
@@ -15,7 +16,14 @@ export default function Home() {
         <section id="skills"><Skills /></section>
         {/* <Projects /> */}
         <Experience />
-        <Products />
+        <Products
+          items={PROJECTS.map((p) => ({
+            title: p.title,
+            description: p.description,
+            live: Boolean(p.link),
+            case: false,
+          }))}
+        />
         <Certifications />
         <SourceCode />
       </div>
