@@ -10,23 +10,29 @@ interface ProductProps {
   };
   mover: (count: number) => void;
   count: number;
+  onLeave?: () => void;
 }
 
-export const Product = ({val, mover, count}: ProductProps) => {
+export const Product = ({val, mover, count, onLeave}: ProductProps) => {
   return (
-    <div className="w-full py-20  h-[23rem]  text-white">
-      <div onMouseEnter={()=>{
-        mover(count)
-      }} className="max-w-screen-xl mx-auto flex items-center justify-between">
-     
-        <h1 className="text-6xl capitalize font-semibold ml-10">{val.title}</h1>
-        <div className="dets w-1/3">
-          <p className="mb-10 w-[280px] text-xl">
-           {val.description}
+    <div className="w-full py-12 text-white">
+      <div
+        onMouseEnter={() => {
+          mover(count);
+        }}
+        onMouseLeave={onLeave}
+        className="max-w-screen-xl mx-auto px-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-8"
+      >
+        <h1 className="text-3xl md:text-5xl lg:text-6xl capitalize font-semibold">
+          {val.title}
+        </h1>
+        <div className="dets w-full md:w-1/2 lg:w-1/3">
+          <p className="mb-6 max-w-md text-base md:text-lg leading-relaxed text-gray-200">
+            {val.description}
           </p>
-          <div className="w-1 flex gap-5">
-                {val.live && <Button/>}
-                {val.case && <Button title="Case Study"/>}
+          <div className="flex gap-3">
+            {val.live && <Button />}
+            {val.case && <Button title="Case Study" />}
           </div>
         </div>
       </div>
