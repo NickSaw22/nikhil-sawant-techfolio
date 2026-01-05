@@ -3,7 +3,7 @@ import React from "react";
 export const Footer = () => {
     return (
         <div className="w-full pt-32">
-            <div className="max-w-screen-xl mx-auto py-10 flex gap-32">
+            <div className="w-screen mx-[calc(50%-50vw)] px-6 md:px-10 py-10 flex gap-16 lg:gap-32">
                 <div className="basis-1/2 flex flex-col justify-between">
                     <h1 className="text-[11.5rem] font-semibold leading-none tracking-tight mb-5">
                         techFolio.
@@ -19,7 +19,7 @@ export const Footer = () => {
                 <div className="basis-1/2 flex gap-5">
                     <div className="basis-1/3 ">
                         <h1 className="mb-8">socials</h1>
-                        {["instagram", "twitter (x?)", "LinkedIn"].map((item, index) => (
+                        {["hackerRank", "twitter (x?)", "LinkedIn"].map((item, index) => (
                             <a key={index} className="block mt-3 text-zinc-600 capitalize">{item}</a>
                         ))}
                     </div>
