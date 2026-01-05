@@ -2,9 +2,10 @@ import { FaYoutube, FaFacebook } from "react-icons/fa";
 import {
   RxDiscordLogo,
   RxGithubLogo,
-  RxInstagramLogo,
+  RxCode,
   RxTwitterLogo,
   RxLinkedinLogo,
+  RxInstagramLogo,
 } from "react-icons/rx";
 
 export const SKILL_DATA = [
@@ -307,9 +308,9 @@ export const FOOTER_DATA = [
     title: "Social Media",
     data: [
       {
-        name: "Instagram",
-        icon: RxInstagramLogo,
-        link: "https://instagram.com",
+        name: "HackerRank",
+        icon: RxCode,
+        link: "https://hackerrank.com",
       },
       {
         name: "Twitter",
@@ -346,6 +347,10 @@ export const FOOTER_DATA = [
 ] as const;
 
 export const NAV_LINKS = [
+  {
+    title: "Home",
+    link: "#home",
+  },
   {
     title: "About me",
     link: "#about-me",
