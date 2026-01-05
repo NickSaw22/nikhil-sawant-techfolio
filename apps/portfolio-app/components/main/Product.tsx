@@ -7,6 +7,7 @@ interface ProductProps {
     description: string;
     live: boolean;
     case: boolean;
+    tags?: string[];
   };
   mover: (count: number) => void;
   count: number;
@@ -21,11 +22,25 @@ export const Product = ({val, mover, count, onLeave}: ProductProps) => {
           mover(count);
         }}
         onMouseLeave={onLeave}
-        className="max-w-screen-xl mx-auto px-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-8"
+        className="w-full px-6 lg:px-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8"
       >
-        <h1 className="text-3xl md:text-5xl lg:text-6xl capitalize font-semibold">
-          {val.title}
-        </h1>
+        <div className="flex-1">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl capitalize font-semibold">
+            {val.title}
+          </h1>
+          {val.tags && val.tags.length > 0 && (
+            <div className="mt-3 flex flex-wrap gap-2">
+              {val.tags.map((t, i) => (
+                <span
+                  key={i}
+                  className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs text-white"
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
+          )}
+        </div>
         <div className="dets w-full md:w-1/2 lg:w-1/3">
           <p className="mb-6 max-w-md text-base md:text-lg leading-relaxed text-gray-200">
             {val.description}

@@ -7,11 +7,12 @@ import { Navbar } from "../components/main/navbar";
 import { StarsCanvas } from "../components/main/star-background";
 import { cn } from "../lib/utils";
 import { Footer } from "../components/main/footer";
+import { EntryLoader } from "../components/main/entry-loader";
 
 const geist = Geist({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Nikhil Sawant - Portfolio",
+  title: "Nikhil Sawant",
   description: "Nikhil Sawant's Personal Portfolio Website",
 };
 
@@ -37,6 +38,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
           geist.className
         )}
       >
+        <EntryLoader />
         <StarsCanvas />
         <Navbar />
         {children}
