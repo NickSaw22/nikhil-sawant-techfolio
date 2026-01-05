@@ -2,7 +2,7 @@ import { Hero } from "../components/main/hero";
 import { Skills } from "../components/main/skills";
 import { About } from "../components/main/about";
 import { Products } from "../components/main/Products";
-import { Projects } from "../components/main/projects";
+// import { Projects } from "../components/main/projects";
 import { PROJECTS } from "../constants";
 import { SourceCode } from "../components/main/source-code";
 import { Experience } from "../components/main/experience";
@@ -22,6 +22,14 @@ export default function Home() {
             description: p.description,
             live: Boolean(p.link),
             case: false,
+            tags:
+              p.title.includes("Next.js") || p.title.includes("Portfolio")
+                ? ["Next.js", "Tailwind", "Framer Motion"]
+                : p.title.includes("Interactive Cards")
+                ? ["React", "Tailwind", "Framer Motion"]
+                : p.title.includes("Space")
+                ? ["Next.js", "Three.js", "React"]
+                : ["React", "Tailwind"],
           }))}
         />
         <Certifications />

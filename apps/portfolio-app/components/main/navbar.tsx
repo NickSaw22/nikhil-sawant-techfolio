@@ -9,7 +9,7 @@ export const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <div className="w-full h-[65px] fixed top-0 shadow-lg shadow-[#2A0E61]/50 bg-[#03001427] backdrop-blur-md z-50 px-10">
+    <nav className="w-full h-[65px] fixed top-0 left-0 shadow-lg shadow-[#2A0E61]/50 bg-[#03001427] backdrop-blur-md z-50 px-10" aria-label="Primary">
       {/* Navbar Container */}
       <div className="w-full h-full flex items-center justify-between m-auto px-[10px]">
         {/* Logo + Name */}
@@ -25,12 +25,12 @@ export const Navbar = () => {
             draggable={false}
             className="cursor-pointer"
           />
-          <div className="hidden md:flex md:selffont-bold ml-[10px] text-gray-300">Nikhil Sawant</div>
+          <div className="hidden md:flex font-bold ml-[10px] text-gray-300 md:text-lg">Nikhil Sawant</div>
         </Link>
 
         {/* Web Navbar */}
-        <div className="hidden md:flex w-[500px] h-full flex-row items-center justify-between md:mr-20">
-          <div className="flex items-center justify-between w-full h-auto border-[rgba(112,66,248,0.38)] bg-[rgba(3,0,20,0.37)] mr-[15px] px-[20px] py-[10px] rounded-full text-gray-200">
+        <div className="hidden md:flex h-full flex-row items-center md:mr-20">
+          <div className="flex items-center w-auto h-auto border-[rgba(112,66,248,0.38)] bg-[rgba(3,0,20,0.37)] mr-[15px] px-6 py-2 rounded-full text-gray-200 whitespace-nowrap gap-6 lg:gap-8">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.title}
@@ -71,6 +71,8 @@ export const Navbar = () => {
         <button
           className="md:hidden text-white focus:outline-none text-4xl"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle menu"
+          aria-expanded={isMobileMenuOpen}
         >
           ☰
         </button>
@@ -117,6 +119,6 @@ export const Navbar = () => {
           </div>
         </div>
       )}
-    </div>
+    </nav>
   );
 };
