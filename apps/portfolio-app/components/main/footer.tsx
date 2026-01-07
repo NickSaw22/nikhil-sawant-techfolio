@@ -30,7 +30,7 @@ export const Footer = () => {
                         ))}
                     </div>
                     <div className="basis-1/2 ">
-                        <p className="text-right">Refokus is a pioneering digital agency driven by design and empowered by technology</p>
+                        <p className="text-right">My goal is to build a pioneering digital projects driven by design and empowered by technology</p>
 
                     </div>
                 </div>

@@ -58,14 +58,14 @@ export const EXPERIENCE: ExperienceItem[] = [
     ],
   },
   {
-    title: "Intern - Software Engineer",
+    title: "Associate - Software Engineer",
     company: "GEP Worldwide",
     period: "Jan 2022 – May 2022",
     location: "Navi Mumbai, India",
     description: "Assisted in developing and testing software features, gaining hands-on experience with full software development lifecycle.",
-    stack: ["Java", "Spring Boot", "MySQL", "Git"],
+    stack: ["JavaScript", ".Net Core", "MySQL", "Git"],
     highlights: [
-      "Contributed to backend feature development using Java and Spring Boot, enhancing application functionality.",
+      "Contributed to backend feature development using JavaScript and .Net framework, enhancing application functionality.",
         "Participated in code reviews and testing, ensuring high-quality software delivery.",
         "Collaborated with cross-functional teams to understand requirements and deliver solutions.",
     ],
