@@ -376,6 +376,10 @@ export const NAV_LINKS = [
   {
     title: "Publications",
     link: "#publications"
+  },
+  {
+    title: "Contact",
+    link: "#contact",
   }
 ] as const;
 
