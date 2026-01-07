@@ -1,12 +1,14 @@
-import { FaYoutube, FaFacebook } from "react-icons/fa";
+import { FaYoutube } from "react-icons/fa";
+import { SiHackerrank, SiLeetcode, SiLinkedin } from "react-icons/si";
 import {
   RxDiscordLogo,
   RxGithubLogo,
   RxCode,
   RxTwitterLogo,
   RxLinkedinLogo,
-  RxInstagramLogo,
 } from "react-icons/rx";
+import { title } from "process";
+import { link } from "fs";
 
 export const SKILL_DATA = [
   {
@@ -91,19 +93,19 @@ export const SKILL_DATA = [
 
 export const SOCIALS = [
   {
-    name: "Instagram",
-    icon: RxInstagramLogo,
-    link: "https://instagram.com",
+    name: "HackerRank",
+    icon: SiHackerrank,
+    link: "https://www.hackerrank.com/profile/swanikhil217",
   },
   {
-    name: "Facebook",
-    icon: FaFacebook,
-    link: "https://facebook.com",
+    name: "LeetCode",
+    icon: SiLeetcode,
+    link: "https://leetcode.com/u/Nick_Saw22/",
   },
   {
-    name: "Twitter",
-    icon: RxTwitterLogo,
-    link: "https://twitter.com",
+    name: "LinkedIn",
+    icon: RxLinkedinLogo,
+    link: "https://www.linkedin.com/in/nikhil-m-sawant/",
   },
 ] as const;
 
@@ -309,18 +311,18 @@ export const FOOTER_DATA = [
     data: [
       {
         name: "HackerRank",
-        icon: RxCode,
-        link: "https://hackerrank.com",
+        icon: SiHackerrank,
+        link: "https://www.hackerrank.com/profile/swanikhil217",
       },
       {
-        name: "Twitter",
-        icon: RxTwitterLogo,
-        link: "https://twitter.com",
+        name: "LeetCode",
+        icon: SiLeetcode,
+        link: "https://leetcode.com/u/Nick_Saw22/",
       },
       {
         name: "Linkedin",
         icon: RxLinkedinLogo,
-        link: "https://linkedin.com",
+        link: "https://www.linkedin.com/in/nikhil-m-sawant/",
       },
     ],
   },
@@ -367,12 +369,16 @@ export const NAV_LINKS = [
     title: "Experience",
     link: "#experience",
   },
+  // {
+  //   title: "Certifications",
+  //   link: "#certifications",
+  // },
   {
-    title: "Certifications",
-    link: "#certifications",
-  },
+    title: "Publications",
+    link: "#publications"
+  }
 ] as const;
 
 export const LINKS = {
-  sourceCode: "https://github.com/sanidhyy/space-portfolio",
+  sourceCode: "https://github.com/NickSaw22/nikhil-sawant-techfolio",
 };

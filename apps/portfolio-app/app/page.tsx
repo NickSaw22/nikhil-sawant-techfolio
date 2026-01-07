@@ -6,14 +6,15 @@ import { Products } from "../components/main/Products";
 import { PROJECTS } from "../constants";
 import { SourceCode } from "../components/main/source-code";
 import { Experience } from "../components/main/experience";
-import { Certifications } from "../components/main/certifications";
+import { Publications } from "../components/main/publications";
+import { Contact } from "../components/main/contact";
 export default function Home() {
   return (
     <main className="h-full w-full">
       <div className="flex flex-col gap-20">
         <Hero />
         <About />
-        <section id="skills"><Skills /></section>
+        {/* <section id="skills"><Skills /></section> */}
         {/* <Projects /> */}
         <Experience />
         <Products
@@ -32,8 +33,9 @@ export default function Home() {
                 : ["React", "Tailwind"],
           }))}
         />
-        <Certifications />
-        <SourceCode />
+        {/* <Certifications /> */}
+        <Publications />
+        <Contact />
       </div>
     </main>
   );
