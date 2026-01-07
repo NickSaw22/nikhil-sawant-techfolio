@@ -1,5 +1,5 @@
 'use client';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -7,6 +7,30 @@ import { LINKS, NAV_LINKS, SOCIALS } from "../../constants";
 
 export const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = NAV_LINKS.map(link => {
+        const id = link.link.replace('#', '');
+        return document.getElementById(id);
+      }).filter(Boolean);
+
+      const scrollPosition = window.scrollY + 100; // Offset for navbar height
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = sections[i];
+        if (section && section.offsetTop <= scrollPosition) {
+          setActiveSection('#' + section.id);
+          break;
+        }
+      }
+    };
+
+    handleScroll(); // Initial check
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <nav className="w-full h-[65px] fixed top-0 left-0 shadow-lg shadow-[#2A0E61]/50 bg-[#03001427] backdrop-blur-xl z-50 px-10 border-b border-white/5" aria-label="Primary">
@@ -41,10 +65,14 @@ export const Navbar = () => {
               <Link
                 key={link.title}
                 href={link.link}
-                className="relative cursor-pointer hover:text-white transition-all duration-300 group"
+                className={`relative cursor-pointer transition-all duration-300 group ${
+                  activeSection === link.link ? 'text-white font-semibold' : 'hover:text-white'
+                }`}
               >
                 <span className="relative z-10">{link.title}</span>
-                <span className="absolute inset-x-0 -bottom-1 h-0.5 bg-gradient-to-r from-purple-500 to-cyan-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+                <span className={`absolute inset-x-0 -bottom-1 h-0.5 bg-gradient-to-r from-purple-500 to-cyan-500 transition-transform duration-300 origin-left ${
+                  activeSection === link.link ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                }`} />
               </Link>
             ))}
 
@@ -97,11 +125,15 @@ export const Navbar = () => {
               <Link
                 key={link.title}
                 href={link.link}
-                className="relative w-full text-center px-4 py-3 rounded-lg hover:bg-white/5 cursor-pointer hover:text-white transition-all duration-300 group"
+                className={`relative w-full text-center px-4 py-3 rounded-lg hover:bg-white/5 cursor-pointer transition-all duration-300 group ${
+                  activeSection === link.link ? 'text-white font-semibold bg-white/5' : 'hover:text-white'
+                }`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 <span className="relative z-10">{link.title}</span>
-                <span className="absolute inset-x-4 bottom-0 h-0.5 bg-gradient-to-r from-purple-500 to-cyan-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+                <span className={`absolute inset-x-4 bottom-0 h-0.5 bg-gradient-to-r from-purple-500 to-cyan-500 transition-transform duration-300 ${
+                  activeSection === link.link ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                }`} />
               </Link>
             ))}
             <Link
